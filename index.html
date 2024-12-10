@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milan's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <style>
+        /* Global Styles */
+        body {
+            line-height: 1.6;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(115deg, #b6efba, #7fe28a);
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #9d174d;
+        }
+
+        h2{
+            color: #006d45;
+        }
+
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background-color: #b6efba;
+        }
+
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 8px solid #7fe28a;
+            box-shadow: 0 10px 20px rgba(157, 23, 77, 0.2);
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 3em;
+            margin: 20px 0 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #9d174d;
+        }
+
+        /* Sections */
+        .section {
+            background-color: #82ce89;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About */
+        .about p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Skills */
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skills li {
+            background-color: #7fe28a;
+            color: black;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 30px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skills li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(157, 23, 77, 0.3);
+        }
+
+        /* Hobbies */
+        .hobbies ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .hobbies li {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hobbies i {
+            font-size: 2em;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        /* Future Goals */
+        .future-goals {
+            background: #82ce89;
+            text-align: justify;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            text-align: center;
+            background-color: #67b770;
+            color: #0b4008;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .contact-info a {
+            color: #0b4008;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #fdf2f8;
+        }
+
+                /* Footer Styles */
+        footer {
+            background-color: #56975e; /* Green background for footer */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            max-width: 1200px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        footer .footer-content p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        footer .social-icons {
+            display: flex; /* Align icons in one line */
+            justify-content: center; /* Center the icons horizontally */
+            margin-top: 10px;
+        }
+
+        footer .social-icon {
+            margin: 0 15px; /* Space between icons */
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icon:hover {
+            color: #f1b2f7; /* Hover effect */
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 30px;
+            }
+
+            .name {
+                font-size: 2.5em;
+            }
+
+            .skills li {
+                margin: 5px;
+            }
+
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-pic">
+            <img src="milan 2.jpg" alt="Profile Picture">
+        </div>
+        <h1 class="name">Hi, I'm Milan Maheta</h1>
+        <p class="subtitle">Student at Silver Oak University</p>
+    </header>
+
+    <main class="container">
+        <section class="section about">
+            <h2>About Me</h2>
+            <p>I am a passionate and dedicated student currently pursuing my Bachelor's in Computer Science at Silver Oak University. With a strong foundation in programming, problem-solving, and teamwork, I enjoy exploring innovative technologies and applying them to practical projects. Beyond academics, I am driven by curiosity and a commitment to continuous learning. My goal is to grow as a skilled professional who can contribute meaningfully to impactful solutions while leaving a positive mark in the tech industry.</p>
+        </section>
+
+        <section class="section skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>MySQL</li>
+                <li>BOOTSTRAP5</li>
+                <li>Presentation</li>
+                <li>Teamwork</li>
+                <li>Leadership</li>
+                <li>Communication</li>
+                <li>Problem-solving</li>
+                <li>Report writing</li>
+                <li>Time management</li>
+                <li>Innovative ideation</li>
+                <li>Attention to detail</li>
+            </ul>
+        </section>
+
+        <section class="section hobbies">
+            <h2>Hobbies</h2>
+            <ul>
+                <li><i class="fas fa-book"></i><br>Reading</li>
+                <li><i class="fas fa-music"></i><br>Music</li>
+                <li><i class="fas fa-campground"></i><br>Camping</li>
+                <li><i class="fas fa-plane"></i><br>Travelling</li>
+                <li><i class="fas fa-laptop-code"></i><br>Coding</li>
+            </ul>
+        </section>
+        
+
+        <section class="section future-goals">
+            <h2>Future Goals</h2>
+            <p>My future goal is to become a proficient software developer, leveraging my technical skills in programming, problem-solving, and innovative thinking to create impactful solutions. I aim to work on projects that enhance user experiences while addressing real-world challenges. With a focus on continuous learning, I aspire to contribute to the tech industry by developing sustainable and scalable applications. My ultimate ambition is to lead projects that drive positive change in society through technology.</p>
+        </section>
+
+        <section class="contact-info">
+            <h2>Let's Connect</h2>
+            <p>Email: <a href="mailto:sp419944@gmail.com.com">sp419944@gmail.com</a></p>
+            <p>Mobile: <a href="tel:+919313075623">+91 93130 75623</a></p>
+            <p>Palanpur, Gujarat, India</p>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <p>© 2024 Milan Maheta. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/mi7xnn" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/mii7xn/profilecard/?igsh=MXcxcnd4b2RsM3MwcA==" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/maheta-milan-799a42325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/MILANN007" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </footer>
+        
+    </main>
+</body>
+</html>
