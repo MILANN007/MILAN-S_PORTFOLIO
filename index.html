@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +34,7 @@
         }
 
         h2{
-            color: #006d45;
+            color: #0b4008;
         }
 
 
@@ -140,14 +139,14 @@
         /* Contact Info */
         .contact-info {
             text-align: center;
-            background-color: #67b770;
-            color: #0b4008;
+            background-color: #82ce89;
+            color: #006d45;
             padding: 40px;
             border-radius: 20px;
         }
 
         .contact-info a {
-            color: #0b4008;
+            color: #006d45;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -158,7 +157,7 @@
 
                 /* Footer Styles */
         footer {
-            background-color: #56975e; /* Green background for footer */
+            background-color: #52a05b; /* Green background for footer */
             color: white;
             text-align: center;
             padding: 20px;
@@ -193,37 +192,128 @@
         }
 
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
+        /* Responsive Design Enhancements */
+        @media (max-width: 1024px) {
+            header {
+                padding: 40px 0;
             }
-            
-            .section {
-                padding: 30px;
+
+            .profile-pic {
+                width: 200px;
+                height: 200px;
             }
 
             .name {
                 font-size: 2.5em;
             }
 
-            .skills li {
-                margin: 5px;
+            .subtitle {
+                font-size: 1em;
             }
 
+            .container {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .skills li {
+                padding: 8px 16px;
+                margin: 5px;
+                font-size: 0.8em;
+            }
+
+            .hobbies ul {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .hobbies li {
+                flex: 1 1 calc(50% - 20px);
+            }
+
+            footer {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 768px) {
             .profile-pic {
                 width: 150px;
                 height: 150px;
             }
 
-            
+            .name {
+                font-size: 2em;
+            }
+
+            .skills ul {
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+            }
+
+            .skills li {
+                width: auto;
+                text-align: center;
+            }
+
+            .hobbies ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hobbies li {
+                width: auto;
+            }
+
+            .contact-info {
+                padding: 20px;
+                font-size: 0.9em;
+            }
+
+            footer .social-icons {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
         }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            .name {
+                font-size: 1.8em;
+            }
+
+            .subtitle {
+                font-size: 0.9em;
+            }
+
+            .skills li {
+                font-size: 0.7em;
+            }
+
+            .hobbies li i {
+                font-size: 1.5em;
+            }
+
+            footer .social-icon {
+                font-size: 1.2em;
+                margin: 0 10px;
+            }
+        }
+
+
+
     </style>
 </head>
 <body>
     <header>
         <div class="profile-pic">
-            <img src="milan 2.jpg" alt="Profile Picture">
+            <img src="C:\Users\rudra\Downloads\milan 2.jpg" alt="Profile Picture">
         </div>
         <h1 class="name">Hi, I'm Milan Maheta</h1>
         <p class="subtitle">Student at Silver Oak University</p>
@@ -250,8 +340,6 @@
                 <li>Problem-solving</li>
                 <li>Report writing</li>
                 <li>Time management</li>
-                <li>Innovative ideation</li>
-                <li>Attention to detail</li>
             </ul>
         </section>
 
