@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter Smith</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        .slides {
+            display: flex;
+            width: calc(100% * 7); /* totalSlides + 1 */
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+        .slides img {
+            width: calc(100% / 7); /* Adjust for total slides (4 + 1 duplicate) */
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid #ddd;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: black;
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .arrow-left {
+            left: 10px;
+        }
+        .arrow-right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-black text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-xl font-bold">
+                <a href="#" class="flex items-center">
+                    <span>WalterSmith</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex flex-grow justify-center space-x-5">
+                <a href="home.php" class="nav-link hover:text-gray-400">Home</a>
+                <a href="aboutus.php" class="nav-link hover:text-gray-400">About</a>
+                <a href="errormsg.php" class="nav-link hover:text-gray-400">Blog</a>
+                <a href="shop.php" class="nav-link hover:text-gray-400">Shop</a>
+                <a href="contact.php" class="nav-link hover:text-gray-400">Contact</a>
+            </div>
+
+            <!-- Cart and Login Icons -->
+            <div class="flex items-center space-x-8">
+                <a href="checkout.php" class="text-xl hover:text-gray-400">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="profile.php" class="text-xl hover:text-gray-400">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex">
+        <!-- Furniture Category Sidebar -->
+        <aside class="w-1/5 p-4 bg-gray-100">
+            <h2 class="text-xl font-bold mb-4">Furniture Categories</h2>
+            <ul class="space-y-2">
+                <li><a href="shop.php" class="text-blue-500 hover:underline">Living Room</a></li>
+                <li><a href="shop.php" class="text-blue-500 hover:underline">Bedroom</a></li>
+                <li><a href="shop.php" class="text-blue-500 hover:underline">Dining Room</a></li>
+                <li><a href="shop.php" class="text-blue-500 hover:underline">Office</a></li>
+                <li><a href="shop.php" class="text-blue-500 hover:underline">Outdoor</a></li>
+            </ul>
+        </aside>
+
+        <!-- Furniture Image Gallery -->
+        <div class="w-4/5 p-4 relative bg-gray-100">
+            <div class="slider">
+                <div class="slides" id="slides">
+                    <img src="https://www.ulcdn.net/media/collection%20and%20listing/sofa.jpg?1688453493" alt="Furniture Image 1">
+                    <img src="https://topiko.com/prod/app/productimages/4298_1729143734.jpeg" alt="Furniture Image 2">
+                    <img src="https://media.designcafe.com/wp-content/uploads/2023/07/05120637/modern-furniture-designs.jpg" alt="Furniture Image 3">
+                    <img src="https://crystalfurnitech.com/wp-content/uploads/2024/04/beadroom-baground.jpg" alt="Furniture Image 4">
+                    <img src="https://images.livspace-cdn.com/plain/https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2022/08/27163510/bedroom-furniture-design.jpg" alt="Furniture Image 4">
+                    <img src="https://assets.bdiusa.com/BDI-products-1200x1200/OFFICE/LINQ-OFFICE/DESK-6821/WALNUT/_1440x810_crop_center-center_none/linq-modern-executive-office-desk-BDI-furniture-mid-century-modern-office-1440.jpg?v=1725020660" alt="Furniture Image 4">
+                    <!-- Duplicate of the first image for smooth transition -->
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpQ-pqex_hhz_N28hE_RsgJZO56m_B_BWylg&s" alt="Furniture Image 1 Duplicate">
+                </div>
+            </div>
+            <button class="arrow arrow-left" id="prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="arrow arrow-right" id="next"><i class="fas fa-chevron-right"></i></button>
+        </div>  
+    </div>
+
+
+    <!-- Product Section -->
+    <section class="container mx-auto p-6">
+        <h2 class="text-2xl font-bold mb-6 text-center">Products</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Product Card -->
+            <div class="bg-white shadow-lg border border-black p-4 relative">
+                <img src="data:image/jpeg;base64,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" alt="Product 1" class="w-full h-48 object-cover  ">
+                <button class="absolute top-4 right-4 text-gray-500 hover:text-red-500"><i class="fas fa-heart"></i></button>
+                <h3 class="text-xl font-bold mt-4">Luxury Sofa</h3>
+                <p class="text-lg font-bold mt-2">$499.00</p>
+                <!-- Color Selection -->
+                <div class="mt-2">
+                    <label for="color1" class="text-gray-600">Select Color:</label>
+                    <select id="color1" class="bg-gray-200 px-2 py-1  ">
+                        <option>Gray</option>
+                        <option>Beige</option>
+                        <option>Blue</option>
+                    </select>
+                </div>
+                <!-- Quantity and Purchase -->
+                <div class="flex items-center mt-4">
+                    <button class="bg-gray-200 px-2 py-1  ">-</button>
+                    <span class="mx-4">1</span>
+                    <button class="bg-gray-200 px-2 py-1  ">+</button>
+                    <button class="ml-auto bg-blue-500 text-white px-4 py-2  "><a href="checkout.php">Purchase</a></button>
+                </div>
+            </div>
+            
+            <!-- Repeat for the other 3 products -->
+            <div class="bg-white shadow-lg border border-black p-4 relative">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrDCMDR3lDFczLWMrPE3z_SMr8MZ34CIyuVA&s" alt="Product 2" class="w-full h-48 object-cover  ">
+                <button class="absolute top-4 right-4 text-gray-500 hover:text-red-500"><i class="fas fa-heart"></i></button>
+                <h3 class="text-xl font-bold mt-4">Modern Dining Table</h3>
+                <p class="text-lg font-bold mt-2">$299.00</p>
+                <!-- Color Selection -->
+                <div class="mt-2">
+                    <label for="color2" class="text-gray-600">Select Color:</label>
+                    <select id="color2" class="bg-gray-200 px-2 py-1  ">
+                        <option>Walnut</option>
+                        <option>Black</option>
+                        <option>White</option>
+                    </select>
+                </div>
+                <!-- Quantity and Purchase -->
+                <div class="flex items-center mt-4">
+                    <button class="bg-gray-200 px-2 py-1  ">-</button>
+                    <span class="mx-4">1</span>
+                    <button class="bg-gray-200 px-2 py-1  ">+</button>
+                    <button class="ml-auto bg-blue-500 text-white px-4 py-2  "><a href="checkout.php">Purchase</a></button>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg border border-black p-4 relative">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl4KQ-NWj4s-t9P6BWBovGaFdktalWlUSxpw&s" alt="Product 3" class="w-full h-48 object-cover  ">
+                <button class="absolute top-4 right-4 text-gray-500 hover:text-red-500"><i class="fas fa-heart"></i></button>
+                <h3 class="text-xl font-bold mt-4">Ergonomic Office Chair</h3>
+                <p class="text-lg font-bold mt-2">$199.00</p>
+                <!-- Color Selection -->
+                <div class="mt-2">
+                    <label for="color3" class="text-gray-600">Select Color:</label>
+                    <select id="color3" class="bg-gray-200 px-2 py-1  ">
+                        <option>Black</option>
+                        <option>Gray</option>
+                        <option>White</option>
+                    </select>
+                </div>
+                <!-- Quantity and Purchase -->
+                <div class="flex items-center mt-4">
+                    <button class="bg-gray-200 px-2 py-1  ">-</button>
+                    <span class="mx-4">1</span>
+                    <button class="bg-gray-200 px-2 py-1  ">+</button>
+                    <button class="ml-auto bg-blue-500 text-white px-4 py-2  "><a href="checkout.php">Purchase</a></button>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg border border-black p-4 relative">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn4ToTrndUF1M2jLdHwYbIbXTHhR1rVe6UaA&s" alt="Product 4" class="w-full h-48 object-cover  ">
+                <button class="absolute top-4 right-4 text-gray-500 hover:text-red-500"><i class="fas fa-heart"></i></button>
+                <h3 class="text-xl font-bold mt-4">Outdoor Lounge Chair</h3>
+                <p class="text-lg font-bold mt-2">$149.00</p>
+                <!-- Color Selection -->
+                <div class="mt-2">
+                    <label for="color4" class="text-gray-600">Select Color:</label>
+                    <select id="color4" class="bg-gray-200 px-2 py-1  ">
+                        <option>Teak</option>
+                        <option>Gray</option>
+                        <option>White</option>
+                    </select>
+                </div>
+                <!-- Quantity and Purchase -->
+                <div class="flex items-center mt-4">
+                    <button class="bg-gray-200 px-2 py-1  ">-</button>
+                    <span class="mx-4">1</span>
+                    <button class="bg-gray-200 px-2 py-1  ">+</button>
+                    <button class="ml-auto bg-blue-500 text-white px-4 py-2  "><a href="checkout.php">Purchase</a></button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pagination Controls -->
+        <div class="flex items-center space-x-4 mt-8">
+            <!-- Previous Page Button -->
+            <button class="bg-gray-200 text-gray-700 px-4 py-2 shadow-sm hover:bg-gray-300">
+                Prev
+            </button>
+            <!-- Next Page Button -->
+            <button class="bg-gray-200 text-gray-700 px-4 py-2 shadow-sm hover:bg-gray-300">
+                Next
+            </button>
+        </div>
+    </section>
+
+
+    <!-- About Us Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">About Us</h2>
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAQbYdkt5Oyn-YgVBNmX-AxJS0ULryjNyvfw&s" alt="Our Team" class="w-full h-96 border border-black shadow-lg">
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <h3 class="text-2xl font-semibold mb-4">Who We Are</h3>
+                    <p class="text-gray-700 text-justify mb-4">
+                        At AksharFuri, we believe that furniture should be more than just functional—it should be a statement of style and comfort. Our mission is to offer an exceptional selection of furniture that fits every taste and budget, from modern minimalism to classic elegance.
+                    </p>
+                    <p class="text-gray-700 text-justify mb-4">
+                        Our team of experts is dedicated to providing you with the best quality products and customer service. Whether you’re furnishing a new home or redecorating your current space, we are here to help you find the perfect pieces that reflect your unique style.
+                    </p>
+                    <p class="text-gray-700 text-justify">
+                        With years of experience in the furniture industry, we take pride in our curated collection and our commitment to excellence. Thank you for choosing AksharFuri as your go-to destination for all your furniture needs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer Section -->
+    <footer class="bg-black text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- About Us -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-bold mb-4">About Us</h3>
+                    <p class="text-gray-400">At AksharFuri, we provide the best quality furniture for every space, with a focus on comfort, style, and durability.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="home.php" class="hover:underline">Home</a></li>
+                        <li><a href="shop.php" class="hover:underline">Shop</a></li>
+                        <li><a href="aboutus.php" class="hover:underline">Blog</a></li>
+                        <li><a href="contact.php" class="hover:underline">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-bold mb-4">Customer Service</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="faq.html" class="hover:underline">FAQ</a></li>
+                        <li><a href="returns.html" class="hover:underline">Returns</a></li>
+                        <li><a href="tracking.html" class="hover:underline">Shipping</a></li>
+                        <li><a href="terms.html" class="hover:underline">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Follow Us -->
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4 text-gray-400">
+                        <a href="#" class="text-xl hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-xl hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-xl hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-xl hover:text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="mt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2024 WalterSmith. All Rights Reserved By Milan Maheta.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const slides = document.getElementById('slides');
+        const totalSlides = slides.children.length;
+        let index = 0;
+        let autoSlideInterval;
+
+        function showSlide(n) {
+            if (n >= totalSlides - 1) { // Check for the last slide
+                index = 0;
+                slides.style.transform = `translateX(-${(totalSlides - 1) * (100 / totalSlides)}%)`;
+                setTimeout(() => {
+                    slides.style.transition = 'none';
+                    slides.style.transform = 'translateX(0)'; // Reset to the first slide
+                    setTimeout(() => slides.style.transition = 'transform 1s ease-in-out', 50); // Re-enable transition
+                }, 1000); // Wait for the transition to finish
+            } else {
+                index = n;
+                slides.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
+            }
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+            showSlide(index + 1);
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            showSlide(index - 1 < 0 ? totalSlides - 2 : index - 1); // Skip the duplicate slide when going backward
+        });
+
+        // Auto-slide every 5 seconds
+        autoSlideInterval = setInterval(() => {
+            showSlide(index + 1);
+        }, 4000);
+    </script>
+</body>
+</html>
